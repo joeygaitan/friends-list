@@ -1,10 +1,11 @@
-import {React, Component} from 'react';
-import {Route , Switch, BrowserRouter as Router } from 'react-router-dom'
-import './App.css';
-import FunctionsContext from './context/bookstore-context';
+import React,{ Component} from 'react';
+import {Route , Switch, BrowserRouter } from 'react-router-dom'
+import FunctionsContext from './context/functions';
 import SignUp from './cmponents/SignIn/index';
+import Dashboard from './cmponents/Dashboard/index';
+import Friend from './cmponents/Friend/index'
 
-class React extends Component {
+class App extends Component {
   constructor(){
     super();
     this.state={
@@ -17,32 +18,69 @@ class React extends Component {
     }
   }
 
+  getFriends = () =>{
+  }
+
+  getFriend = (friendId) =>{
+
+  }
+
+  getAccount = () =>{
+
+  }
+
+  updateAccount = () => {
+
+  }
+
+  addFriend = (friendId) => {
+
+  }
+
+  getPosts = () =>{
+
+  }
+
+  addPosts = () => {
+
+  }
+
+  logOut = () => {
+
+  }
+
+  logIn = () => [
+
+  ]
+
+  signUp = () => {
+
+  }
+
   componentDidMount = () =>{
     
   }
 
     render(){
-      
-      return (
-        <FunctionsContext.Provider value={{
-          friends: this.state.friends,
-          account: this.state.profile,
-          friendRequests:this.state.friendRequest,
-          posts: this.state.posts,
-          post: this.state.newPost,
-          getFriends: ()=>{},
-          getFriend: (frindId) => {},
-          getAccount: () => {},
-          removeFriend: () => {},
-          updateAccount: () => {},
-          addFriend: (friendId)=>{},
-          getPosts: () =>{},
-          addPosts: () => {},
-          logOut: () => {},
-          logIn: () => {},
-          signUp:()=>{}
+      return (<FunctionsContext.Provider value={{
+            friends: this.state.friends,
+            account: this.state.profile,
+            friendRequests:this.state.friendRequest,
+            posts: this.state.posts,
+            post: this.state.newPost,
+            getFriends: this.getFriends,
+            getFriend: this.getFriend,
+            getAccount: this.getAccount,
+            removeFriend: this.removeFriend,
+            updateAccount: this.updateAccount,
+            addFriend: this.addFriend,
+            getPosts: this.getPosts,
+            addPosts: this.addPosts,
+            logOut: this.logOut,
+            logIn: this.logIn,
+            signUp: this.signUp
           }}>
-        <Router>
+        <BrowserRouter>
           <div>
             <Switch>
                 <div>
@@ -52,7 +90,7 @@ class React extends Component {
                 </div>
             </Switch>
           </div>
-        </Router>
+        </BrowserRouter>
         </FunctionsContext.Provider> 
       );
     }
