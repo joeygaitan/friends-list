@@ -1,9 +1,9 @@
 import React,{ Component} from 'react';
 import {Route , Switch, BrowserRouter } from 'react-router-dom'
 import FunctionsContext from './context/functions';
-import SignUp from './cmponents/SignIn/index';
-import Dashboard from './cmponents/Dashboard/index';
-import Friend from './cmponents/Friend/index'
+import SignUp from './components/SignIn/index';
+import Dashboard from './components/Dashboard/index';
+import Friend from './components/Friend/index'
 
 class App extends Component {
   constructor(){
