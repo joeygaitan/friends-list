@@ -1,7 +1,7 @@
 User Stories/MockUp
 
 *#### mockup*
-<a href='[Adobe XD](https://xd.adobe.com/view/e8907d48-ca22-43dd-6cb2-bf1bb87beafa-9ea1/)’>Mock Up</a> 
+[Adobe XD](https://xd.adobe.com/view/e8907d48-ca22-43dd-6cb2-bf1bb87beafa-9ea1/)
 
 ###### User Stories
 I want to log in
