@@ -10,9 +10,9 @@ class Posts extends Component {
             <div className="col-4-md" style={{"padding": "50px"}}>
                 <div class="card" style={{"width": "18rem","backgroundColor":"#b2dbbf"}}>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">How to be a baby</li>
-                        <li class="list-group-item">How to tie your shoe without hands</li>
-                        <li class="list-group-item">Is 50 cent really dead?</li>
+                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>How to be a baby</li>
+                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>How to tie your shoe without hands</li>
+                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>Is 50 cent really dead?</li>
                     </ul>
                 </div>
             </div>
