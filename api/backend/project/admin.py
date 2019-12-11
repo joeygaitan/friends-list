@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Status
-
+from .models import User, Post
 # Register your models here.
 
-admin.site.register(Status)
+admin.site.register(User, Post)
