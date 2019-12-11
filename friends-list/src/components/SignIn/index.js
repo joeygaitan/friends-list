@@ -18,10 +18,11 @@ class SignUp extends Component {
         if(!sessionStorage.getItem('userInfo')){
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
         }else{
-          this.context.signIn(this.state.username)
+          let old = JSON.parse(sessionStorage.getItem('userInfo'))
+          this.context.logIn(old)
           this.props.history.push('/dashboard')
         }
-        this.context.SignUp(this.state.username)
+        this.context.signUp(this.state.username)
         this.props.history.push('/dashboard')
       }else{
         this.setState({ failed: !this.state.failed })

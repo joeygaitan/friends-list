@@ -8,7 +8,7 @@ class Posts extends Component {
     render() { 
         return ( 
             <div className="col-4-md" style={{"padding": "50px"}}>
-                <div class="card" style={{"width": "18rem"}}>
+                <div class="card" style={{"width": "18rem","backgroundColor":"#b2dbbf"}}>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">How to be a baby</li>
                         <li class="list-group-item">How to tie your shoe without hands</li>
