@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import FunctionsContext from '../../context/functions';
 
 
 class SignUp extends Component {
+    static contextType = FunctionsContext 
     constructor(props) {
         super(props);
         this.state = { username:'',password:'', failed: false, stillLogged: false }
@@ -14,17 +16,18 @@ class SignUp extends Component {
         console.log(this.state.username,this.state.password)
         let userInfo = {username:this.state.username,password:this.state.password}
         if(!sessionStorage.getItem('userInfo')){
-          sessionStorage.setItem('userInfo', userInfo)
+          sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
         }else{
-
+          this.context.signIn(this.state.username)
+          this.props.history.push('/dashboard')
         }
-        this.history.push('/dashboard')
+        this.context.SignUp(this.state.username)
+        this.props.history.push('/dashboard')
       }else{
         this.setState({ failed: !this.state.failed })
       }
     }
-    render() { 
-      console.log(this.state.username,this.state.password)
+    render() {
         return (
             <div className="container">
               <div className='row'>

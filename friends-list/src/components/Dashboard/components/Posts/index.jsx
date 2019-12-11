@@ -7,12 +7,12 @@ class Posts extends Component {
     }
     render() { 
         return ( 
-            <div className="col-4-md">
-                <div class="card" style="width: 18rem;">
+            <div className="col-4-md" style={{"padding": "50px"}}>
+                <div class="card" style={{"width": "18rem"}}>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">How to be a baby</li>
+                        <li class="list-group-item">How to tie your shoe without hands</li>
+                        <li class="list-group-item">Is 50 cent really dead?</li>
                     </ul>
                 </div>
             </div>

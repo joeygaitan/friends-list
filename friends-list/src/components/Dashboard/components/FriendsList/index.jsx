@@ -7,12 +7,12 @@ class FriendsList extends Component {
     }
     render() { 
         return ( 
-            <div div className="col-4-md">
-                <div class="card" style="width: 18rem;">
+            <div div className="col-4-md" style={{"padding": "50px"}}>
+                <div class="card" style={{"width": "18rem"}}>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">The boy</li>
+                        <li class="list-group-item">Hank hill drinking brother</li>
+                        <li class="list-group-item">The guy from wallstreet</li>
                     </ul>
                 </div>
             </div>

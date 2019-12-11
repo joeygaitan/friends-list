@@ -49,11 +49,17 @@ class App extends Component {
 
   }
 
-  logIn = () => [
+  logIn = (user) => {
+    console.log(user)
+    
+  }
 
-  ]
+  signUp = (user) => {
+    console.log(user)
 
-  signUp = () => {
+  }
+
+  loggedIn = () => {
 
   }
 
@@ -85,8 +91,8 @@ class App extends Component {
             <Switch>
                 <div>
                   <Route exact path ='/' component={SignUp}/>
-                  <Route exact path = '/dashboard' component={Dashboard}/>
-                  <Route exact path = '/friend' component={Friend}/>
+                  <Route path = '/dashboard' component={Dashboard}/>
+                  <Route path = '/dashboard/:id' component={Friend}/>
                 </div>
             </Switch>
           </div>
