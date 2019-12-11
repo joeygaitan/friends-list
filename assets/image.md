@@ -1,1 +1,1 @@
-![image](./Prototype-mudboard.jpeg)
+![alt text](https:/github/joeygaitan/friends-list/assets/Prototype-mudboard.jpeg)
