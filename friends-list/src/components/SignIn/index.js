@@ -17,13 +17,13 @@ class SignUp extends Component {
         let userInfo = {username:this.state.username,password:this.state.password}
         if(!sessionStorage.getItem('userInfo')){
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+          this.context.signUp(this.state.username)
+          this.props.history.push('/dashboard')
         }else{
           let old = JSON.parse(sessionStorage.getItem('userInfo'))
           this.context.logIn(old)
           this.props.history.push('/dashboard')
         }
-        this.context.signUp(this.state.username)
-        this.props.history.push('/dashboard')
       }else{
         this.setState({ failed: !this.state.failed })
       }
@@ -32,12 +32,12 @@ class SignUp extends Component {
         return (
             <div className="container">
               <div className='row'>
-              <h1 className="col-lg-12" style={{"text-align":"center", "padding-top":"30px"}}>The Buddy System</h1>
+              <h1 className="col-lg-12" style={{"text-align":"center", "padding-top":"30px", "color": "#ff1654"}}>The Buddy System</h1>
               </div>
             <div className="row">
               <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div className="card card-signin my-5">
-                  <div className="card-body">
+                  <div className="card-body" style={{"backgroundColor":"#b2dbbf"}}>
                     <h5 className="card-title text-center">Sign In</h5>
                     <form className="form-signin">
                       <div className="form-label-group">
@@ -45,10 +45,11 @@ class SignUp extends Component {
                         type="email" 
                         id="inputEmail" 
                         className="form-control" 
-                        placeholder="Email address" 
+                        placeholder="Email address"
                         onChange= { (e) => {
                         this.setState({ username: e.target.value})
                         }} 
+                        style={{"backgroundColor": "#f3ffbd"}}
                         required/>
                         <label for="inputEmail">Email address</label>
                       </div>
@@ -69,7 +70,7 @@ class SignUp extends Component {
                       {this.state.failed ? <h4 className="" style={{"color":"red"}}>user name or password is missing please try again</h4> : ""}
                       <hr className="my-4"/>
                       <h5 className="card-title text-center">If you are new here put in a desired username and password. Then please press new Here</h5>
-                      <button className="btn btn-lg btn-google btn-block text-uppercase"><i className="fab fa-google mr-2" onClick={()=>this.ifClicked()}></i>New Here</button>
+                      <button className="btn btn-lg btn-google btn-block text-uppercase" onClick={()=>this.ifClicked()}><i className="fab fa-google mr-2" ></i>New Here</button>
                     </form>
                   </div>
                 </div>

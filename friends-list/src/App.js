@@ -19,14 +19,11 @@ class App extends Component {
   }
 
   getFriends = () =>{
-
+    let originalFriends = [{username: "tom",id:1}]
+    this.setState({friends: [...originalFriends]})
   }
 
   getFriend = (friendId) =>{
-
-  }
-
-  getAccount = () =>{
 
   }
 
@@ -39,33 +36,36 @@ class App extends Component {
   }
 
   getPosts = () =>{
-
+    let originalPosts = [{title: "Nasa Discovers gold", description: "Nasa discovers a new asteriod in a asteriod belt between Jupyter and Mars"}, {creator : "tom"}]
+    this.setState({posts: [...originalPosts]})
   }
 
-  addPosts = () => {
+  addPost = () => {
 
   }
 
   logOut = () => {
-
+    //for later when I build a backend
   }
 
   logIn = (user) => {
     console.log(user)
-    
+    this.setState({account:{username: user}})
   }
 
   signUp = (user) => {
     console.log(user)
-
+    this.setState({account:{username: user}})
+    console.log(this.state.account)
   }
 
   loggedIn = () => {
-
+    //this will check if I am logged in still
   }
 
   componentDidMount = () =>{
-    
+    this.getPosts()
+    this.getFriends()
   }
 
     render(){
@@ -93,7 +93,7 @@ class App extends Component {
                 <div>
                   <Route exact path ='/' component={SignUp}/>
                   <Route path = '/dashboard' component={Dashboard}/>
-                  <Route path = '/dashboard/:id' component={Friend}/>
+                  <Route path = '/friend' component={Friend}/>
                 </div>
             </Switch>
           </div>
