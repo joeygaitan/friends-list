@@ -18,6 +18,10 @@ class Posts extends Component {
         this.props.history.push('/post')
     }
 
+    theClicker = (value) =>{
+        this.setState({clicker: value})
+    }
+
     render() { 
         return (
             <div className="col-4-sm">
@@ -26,7 +30,8 @@ class Posts extends Component {
             </div>
             
                 {this.context.posts.map((object)=>{
-                    return (<>
+                    return (
+                    <>
                     <div className="card" style={{"backgroundColor": "#b2dbbf"}} onClick={(object)=>{return this.differentPage(object)}}>
                         <div className="card-header">
                         {object.title}
@@ -43,7 +48,7 @@ class Posts extends Component {
                 })}
                 <div style={{"paddingTop": "10px", "paddingBottom": "10px"}}>
                 {!this.state.clicker ? <button onClick={()=>{this.setState({clicker:!this.state.clicker})}} className="btn btn-secondary" >Add a post</button> : ""}
-                {this.state.clicker ? <EditPosts/>:""}
+                {this.state.clicker ? <EditPosts theClick = {this.theClicker}/>:""}
             </div>
             </div>
          );

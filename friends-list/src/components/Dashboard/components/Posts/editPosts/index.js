@@ -10,7 +10,8 @@ class EditPosts extends Component {
     }
 
     onSave = ()=>{
-        this.context.addPost({title:this.state.title,descripition:this.state.descripition})
+        this.context.addPosts(this.state)
+        this.props.theClicker(false)
     }
 
     render() { 
@@ -28,7 +29,7 @@ class EditPosts extends Component {
                 onChange={(event)=>{this.setState({descripition:event.target.value})}}
                 id="pwd"/>
             </div>
-            <button className="btn btn-default">Submit</button>
+            <button className="btn btn-default" onClick={()=>{return this.onSave()}}>Submit</button>
         </div>
          );
     }

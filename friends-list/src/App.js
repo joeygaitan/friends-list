@@ -56,8 +56,8 @@ class App extends Component {
     this.setState({posts: [...originalPosts]})
   }
 
-  addPost = (post) => {
-    let newPost = {title:post.title,description:post.description,author:this.state.account.username}
+  addPosts = (post) => {
+    let newPost = {title:post.title,description:post.description,author:this.state.account.username,id:this.state.posts.length()}
 
     this.setState({posts: [...this.state.posts,{...newPost}]})
     this.getPosts()

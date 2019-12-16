@@ -14,7 +14,7 @@ export default React.createContext({
     updateAccount: () => {},
     addFriend: (friendId)=>{},
     getPosts: () =>{},
-    addPosts: () => {},
+    addPosts: (post) => {},
     logOut: () => {},
     logIn: () => {},
     signUp:()=>{}
