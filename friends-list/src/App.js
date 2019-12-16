@@ -34,14 +34,16 @@ class App extends Component {
     // this.setState({account: {...this.state.account,friends:[...originalFriends]}})
     let friends = JSON.parse(sessionStorage.getItem('friends'))
     let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+    let localPosts = JSON.parse(sessionStorage.getItem('posts'))
 
     this.setState({
-      account:{username: userInfo.username, friends:[...friends]}
+      account:{username: userInfo.username, friends:[...friends]},
+      posts: [...localPosts]
     })
   }
 
   addFriend = (friendId) => {
-    let newFriend = {username:friendId.username,id:this.state.account.friends.length()-1}
+    let newFriend = {username:friendId.username,id:this.state.account.friends.length-1}
     this.setState({account: {username: this.state.account, friends: [...this.state.account.friends, {...newFriend}]}}) 
     sessionStorage.setItem('friendsList',JSON.stringify(this.state.friends))
     this.updateAccount()
@@ -57,10 +59,11 @@ class App extends Component {
   }
 
   addPosts = (post) => {
-    let newPost = {title:post.title,description:post.description,author:this.state.account.username,id:this.state.posts.length()}
+    let newPost = {title:post.title,description:post.description,author:this.state.account.username,id:this.state.posts.length}
 
     this.setState({posts: [...this.state.posts,{...newPost}]})
-    this.getPosts()
+
+    sessionStorage.setItem('posts', this.state.posts)
   }
 
   logOut = () => {

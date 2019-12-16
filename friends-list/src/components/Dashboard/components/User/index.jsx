@@ -12,6 +12,8 @@ class User extends Component {
     }
         ifClicked = () => {
             sessionStorage.removeItem('userInfo')
+            sessionStorage.removeItem('posts')
+            sessionStorage.removeItem('friends')
             this.props.history.push('/')
         }
     render() {

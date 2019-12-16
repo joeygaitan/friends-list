@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import FunctionsContext from '../../../../../context/functions'
 
 class EditPosts extends Component {
+    static contextType = FunctionsContext
     constructor(props) {
         super(props);
         this.state = { 
@@ -11,7 +13,7 @@ class EditPosts extends Component {
 
     onSave = ()=>{
         this.context.addPosts(this.state)
-        this.props.theClicker(false)
+        this.props.theClick(false)
     }
 
     render() { 
