@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
+import FunctionsContext from '../../../../context/functions';
 
 class FriendsList extends Component {
+    static contextType = FunctionsContext
     constructor(props) {
         super(props);
         this.state = {  }
@@ -12,15 +14,27 @@ class FriendsList extends Component {
     }
 
     render() { 
-        return ( 
-            <div div className="col-4-md" style={{"padding": "50px"}}>
-                <div class="card" style={{"width": "18rem","backgroundColor":"#b2dbbf"}}>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}} onClick={()=>{this.friendPage()}}>The boy</li>
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}} onClick={()=>{this.friendPage()}}>Hank hill drinking brother</li>
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}} onClick={()=>{this.friendPage()}}>The guy from wallstreet</li>
-                    </ul>
+        return (
+            <div className="col-4-md" style={{"paddingLeft": "20px"}}>
+            <div>
+                <h5>
+                    friends Lists
+                </h5>
+            </div>
+            <div className="card" style={{"backgroundColor": "b2dbbf"}}>
+                <div className="card-body" style={{"backgroundColor": "b2dbbf"}}>
+                    {
+                        this.context.account.friends.map((item)=>{
+                            return (
+                                <>
+                                    <h5 className="card-title">{item.username}</h5>
+                                </>
+                            );
+                        })
+                    }
+                    
                 </div>
+            </div>
             </div>
          );
     }

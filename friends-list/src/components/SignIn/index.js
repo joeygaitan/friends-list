@@ -13,8 +13,8 @@ class SignUp extends Component {
     ifClicked= () =>{
       console.log(this.state.username,this.state.password)
       if(this.state.username !=='' && this.state.password!== ''){
-        console.log(this.state.username,this.state.password)
-        let userInfo = {username:this.state.username,password:this.state.password}
+        console.log(this.state.username)
+        let userInfo = {username:this.state.username}
         if(!sessionStorage.getItem('userInfo')){
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
           this.context.signUp(this.state.username)

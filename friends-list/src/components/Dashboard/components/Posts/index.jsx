@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
+import FunctionsContext from '../../../../context/functions';
 
 class Posts extends Component {
+    static contextType = FunctionsContext 
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        return ( 
-            <div className="col-4-md" style={{"padding": "50px"}}>
-                <div class="card" style={{"width": "18rem","backgroundColor":"#b2dbbf"}}>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>How to be a baby</li>
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>How to tie your shoe without hands</li>
-                        <li class="list-group-item" style={{"backgroundColor":"#b2dbbf"}}>Is 50 cent really dead?</li>
-                    </ul>
-                </div>
+        return (
+            <div className="col-4-sm">
+            <div>
+                <h5>Posts</h5>
+            </div>
+            <div className="card" style={{"backgroundColor": "#b2dbbf"}}>
+                {this.context.posts.map((object)=>{
+                    return (<>
+                        <div className="card-header">
+                        {object.title}
+                        </div>
+                        <div className="card-body" style={{"padding": "50px"}}>
+                        <blockquote className="blockquote mb-0">
+                        <p>{object.description}</p>
+                        <footer className="blockquote-footer">Author:{object.author}</footer>
+                        </blockquote>
+                        </div>
+                        </>
+                    );
+                })}
+            </div>
             </div>
          );
     }

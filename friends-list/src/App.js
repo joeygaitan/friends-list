@@ -3,14 +3,17 @@ import {Route , Switch, BrowserRouter } from 'react-router-dom'
 import FunctionsContext from './context/functions';
 import SignUp from './components/SignIn/index';
 import Dashboard from './components/Dashboard/index';
-import Friend from './components/Friend/index'
+import Post from './components/Post/index';
 
 class App extends Component {
   constructor(){
     super();
     this.state={
       friends: [],
-      profile: {},
+      account: {
+        username:"",
+        friends: []
+    },
       friendProfile: {},
       friendRequest: [],
       posts: [],
@@ -20,11 +23,11 @@ class App extends Component {
 
   getFriends = () =>{
     let originalFriends = [{username: "tom",id:1}]
-    this.setState({friends: [...originalFriends]})
+    this.setState({account: {...this.state.account,friends:[...originalFriends]}})
   }
 
   getFriend = (friendId) =>{
-
+    
   }
 
   updateAccount = () => {
@@ -32,11 +35,12 @@ class App extends Component {
   }
 
   addFriend = (friendId) => {
-
+    let newFriend = {username:"",id:this.state.account.friends.length()-1}
+    this.setState({account: {username: this.state.account, friends: [...this.state.account.friends, {...newFriend}]}}) 
   }
 
   getPosts = () =>{
-    let originalPosts = [{title: "Nasa Discovers gold", description: "Nasa discovers a new asteriod in a asteriod belt between Jupyter and Mars"}, {creator : "tom"}]
+    let originalPosts = [{title: "Nasa Discovers gold", description: "Nasa discovers a new asteriod in a asteriod belt between Jupyter and Mars",author : "tom"}]
     this.setState({posts: [...originalPosts]})
   }
 
@@ -65,13 +69,12 @@ class App extends Component {
 
   componentDidMount = () =>{
     this.getPosts()
-    this.getFriends()
   }
 
     render(){
       return (<FunctionsContext.Provider value={{
             friends: this.state.friends,
-            account: this.state.profile,
+            account: this.state.account,
             friendRequests:this.state.friendRequest,
             posts: this.state.posts,
             post: this.state.newPost,
@@ -93,7 +96,7 @@ class App extends Component {
                 <div>
                   <Route exact path ='/' component={SignUp}/>
                   <Route path = '/dashboard' component={Dashboard}/>
-                  <Route path = '/friend' component={Friend}/>
+                  <Route path = '/dashboard/post' component={Post}/>
                 </div>
             </Switch>
           </div>
