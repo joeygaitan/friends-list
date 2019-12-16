@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FunctionsContext from '../../../../context/functions';
 import './style.css';
 import EditPosts from './editPosts/'
+import { withRouter } from 'react-router-dom';
 
 class Posts extends Component {
     static contextType = FunctionsContext 
@@ -13,8 +14,8 @@ class Posts extends Component {
     }
     
     differentPage = (object) => {
-        this.context.Post(object)
-        this.props.history.push('/dashboard/post')
+        this.context.getPost(object)
+        this.props.history.push('/post')
     }
 
     render() { 
@@ -40,13 +41,13 @@ class Posts extends Component {
                         </>
                     );
                 })}
-                <div>
-                <button onClick={()=>{this.setState({clicker:!this.state.clicker})}}>Add a post</button>
-                {clicker ? <EditPosts/>:""}
+                <div style={{"paddingTop": "10px", "paddingBottom": "10px"}}>
+                {!this.state.clicker ? <button onClick={()=>{this.setState({clicker:!this.state.clicker})}} className="btn btn-secondary" >Add a post</button> : ""}
+                {this.state.clicker ? <EditPosts/>:""}
             </div>
             </div>
          );
     }
 }
  
-export default Posts;
+export default withRouter(Posts);

@@ -27,7 +27,7 @@ class FriendsList extends Component {
                         this.context.account.friends.map((item)=>{
                             return (
                                 <>
-                                    <h5 className="card-title" onClick={(id)=>this.postPage(id)}>{item.username}</h5>
+                                    <h5 className="card-title" onClick={(id)=>this.postPage(id)} style={{"backgroundColor": "b2dbbf"}}>{item.username}</h5>
                                 </>
                             );
                         })
