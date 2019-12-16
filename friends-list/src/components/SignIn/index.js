@@ -26,6 +26,8 @@ class SignUp extends Component {
         }
       }else{
         this.setState({ failed: !this.state.failed })
+        this.context.logIn(null)
+        this.context.signUp(null)
       }
     }
     render() {

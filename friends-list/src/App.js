@@ -22,8 +22,7 @@ class App extends Component {
   }
 
   getFriends = () =>{
-    let originalFriends = [{username: "tom",id:1}]
-    this.setState({account: {...this.state.account,friends:[...originalFriends]}})
+    
   }
 
   getFriend = (friendId) =>{
@@ -31,12 +30,25 @@ class App extends Component {
   }
 
   updateAccount = () => {
+    // let originalFriends = [{username: "tom",id:1}]
+    // this.setState({account: {...this.state.account,friends:[...originalFriends]}})
+    let friends = JSON.parse(sessionStorage.getItem('friends'))
+    let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
 
+    this.setState({
+      account:{username: userInfo.username, friends:[...friends]}
+    })
   }
 
   addFriend = (friendId) => {
-    let newFriend = {username:"",id:this.state.account.friends.length()-1}
+    let newFriend = {username:friendId.username,id:this.state.account.friends.length()-1}
     this.setState({account: {username: this.state.account, friends: [...this.state.account.friends, {...newFriend}]}}) 
+    sessionStorage.setItem('friendsList',JSON.stringify(this.state.friends))
+    this.updateAccount()
+  }
+
+  removeFriend = (friendId) =>{
+
   }
 
   getPosts = () =>{
@@ -44,23 +56,38 @@ class App extends Component {
     this.setState({posts: [...originalPosts]})
   }
 
-  addPost = () => {
+  addPost = (post) => {
+    let newPost = {title:post.title,description:post.description,author:this.state.account.username}
 
+    this.setState({posts: [...posts,{...newPost}]})
+    this.updateAccount()
   }
 
   logOut = () => {
     //for later when I build a backend
   }
 
-  logIn = (user) => {
-    console.log(user)
-    this.setState({account:{username: user}})
+  logIn = (user=null) => {
+    if(user != null){
+      let originalFriends = [{username: "tom",id:1}]
+      sessionStorage.setItem('friends', JSON.stringify(originalFriends))
+      console.log(user)
+      this.setState({account:{username: user,friends:[...originalFriends]}})
+    }else{
+      return null
+    }
   }
 
-  signUp = (user) => {
-    console.log(user)
-    this.setState({account:{username: user}})
-    console.log(this.state.account)
+  signUp = (user=null) => {
+    if(user !=null){
+      let originalFriends = [{username: "tom",id:1}]
+      console.log(user)
+      sessionStorage.setItem('friends', JSON.stringify(originalFriends))
+      this.setState({account:{username: user,friends:[...originalFriends]}})
+      console.log(this.state.account)
+    }else{
+      return null
+    }
   }
 
   loggedIn = () => {
@@ -68,6 +95,7 @@ class App extends Component {
   }
 
   componentDidMount = () =>{
+    // this.updateAccount()
     this.getPosts()
   }
 
