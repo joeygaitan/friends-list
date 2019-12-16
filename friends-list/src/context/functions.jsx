@@ -9,6 +9,7 @@ export default React.createContext({
     getFriends: ()=>{},
     getFriend: (friendId) => {},
     getAccount: () => {},
+    getPost: (post) =>{},
     removeFriend: () => {},
     updateAccount: () => {},
     addFriend: (friendId)=>{},

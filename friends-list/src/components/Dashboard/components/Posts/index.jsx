@@ -14,6 +14,7 @@ class Posts extends Component {
     
     differentPage = (object) => {
         this.context.Post(object)
+        this.props.history.push('/dashboard/post')
     }
 
     render() { 

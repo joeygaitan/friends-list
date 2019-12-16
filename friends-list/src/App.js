@@ -99,6 +99,10 @@ class App extends Component {
     this.getPosts()
   }
 
+  getPost = (post) =>{
+    this.setState({post:{...post}})
+  }
+
     render(){
       return (<FunctionsContext.Provider value={{
             friends: this.state.friends,
@@ -106,6 +110,7 @@ class App extends Component {
             friendRequests:this.state.friendRequest,
             posts: this.state.posts,
             post: this.state.newPost,
+            getPost: this.getPost,
             getFriends: this.getFriends,
             getFriend: this.getFriend,
             getAccount: this.getAccount,

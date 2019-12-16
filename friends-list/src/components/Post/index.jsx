@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import FunctionsContext from '../../context/functions';
 
 class Post extends Component {
+    static contextType = FunctionsContext 
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
     render() { 
         return ( 
