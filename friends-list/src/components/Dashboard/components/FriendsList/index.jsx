@@ -9,8 +9,8 @@ class FriendsList extends Component {
         this.state = {  }
     }
 
-    friendPage = () =>{
-        this.props.history.push('/friend')
+    postPage = () =>{
+        this.props.history.push('/post')
     }
 
     render() { 
@@ -27,7 +27,7 @@ class FriendsList extends Component {
                         this.context.account.friends.map((item)=>{
                             return (
                                 <>
-                                    <h5 className="card-title">{item.username}</h5>
+                                    <h5 className="card-title" onClick={(id)=>this.postPage(id)}>{item.username}</h5>
                                 </>
                             );
                         })

@@ -52,15 +52,15 @@ class App extends Component {
   }
 
   getPosts = () =>{
-    let originalPosts = [{title: "Nasa Discovers gold", description: "Nasa discovers a new asteriod in a asteriod belt between Jupyter and Mars",author : "tom"}]
+    let originalPosts = [{title: "Nasa Discovers gold", description: "Nasa discovers a new asteriod in a asteriod belt between Jupyter and Mars",author : "tom",id:0}]
     this.setState({posts: [...originalPosts]})
   }
 
   addPost = (post) => {
     let newPost = {title:post.title,description:post.description,author:this.state.account.username}
 
-    this.setState({posts: [...posts,{...newPost}]})
-    this.updateAccount()
+    this.setState({posts: [...this.state.posts,{...newPost}]})
+    this.getPosts()
   }
 
   logOut = () => {
